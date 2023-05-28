@@ -78,7 +78,6 @@ figure {
     padding: 2px;
     transition: 0.3s;
     flex-wrap: wrap;
-    display: none;
 }
 
 .gallery:hover .gallery__image {
