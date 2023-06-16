@@ -141,7 +141,7 @@ figure {
     flex-wrap: wrap;
 }
 
-.pill {
+/* .pill {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -153,18 +153,115 @@ figure {
     font-size: 0.8rem;
     margin-right: 10px;
     margin-bottom: 15px;
+    
 
     cursor: pointer;
-}
+} */
 
-.pill:hover {
-    background: var(--body-text-color);
-    color: var(--body-background);
-}
 
+.pill{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--body-text-color);
+    border-radius: 999px;
+ padding: 5px 15px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background: transparent;
+    background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+    background-repeat: repeat-x;
+    background-position: 0 -100%;
+    transition: 1.5s ease;
+}
 .pill:hover a {
-    color: var(--body-background);
+    color: var(--body-text-color);
 }
+.pill.instagram:hover{
+    background-position: center;
+
+   
+}
+
+.pill.videos:hover{
+
+background-position: center;
+  
+
+}
+.pill.shorts:hover{
+
+    background-position: center;
+ }
+
+ .pill.podcasts:hover{
+   
+    
+    background-position: center;
+  
+  }
+
+
+  .pill.interviews:hover{
+ 
+    
+    
+    background-position: center;
+ 
+ }
+ .pill.product:hover{
+ 
+     
+    background-position: center;
+ 
+ }
+ .pill.ad-copies:hover{
+ 
+     
+    background-position: center;
+ 
+ }
+ .pill.instagram:nth-child(1){
+    
+    filter: hue-rotate(100deg);
+}
+.pill.videos:nth-child(2){
+    filter: hue-rotate(120deg);
+
+}
+
+
+
+.pill.shorts:nth-child(3){
+    filter: hue-rotate(150deg);
+
+}
+.pill.podcasts:nth-child(4){
+    filter: hue-rotate(40deg);
+    
+
+}
+.pill.interviews:nth-child(5){
+
+    filter: hue-rotate(360deg);
+}
+.pill.product:nth-child(6){
+    filter: hue-rotate(110deg);
+}
+.pill.ad-copies:nth-child(7){
+    filter: hue-rotate(0deg);
+
+}
+
+
+
+
+
+
+
 
 .player {
     width: 300px;
