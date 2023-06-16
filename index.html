@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="app" class="container">
         <div class="row">
             <div class="col-12">
                 <div class="animated-gradient-text hero-title">
@@ -27,71 +27,12 @@
             </div>
             <div class="col-12">
                 <div class="gallery mt-5">
-                    <div class="gallery__column">
-                        <a href="#" class="gallery__link">
+                    
+                    <div v-for="row in images" class="gallery__column">
+                        <a v-for="img in row" href="#" class="gallery__link">
                             <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/_cvwXhGqG-o/300x300" class="gallery__image">
+                                <img :src="'images/' + img.img" class="gallery__image">
                                 <figcaption class="gallery__caption">Portrait by Jessica Felicio</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/AHBvAIVqk64/300x400" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Oladimeji Odunsi</figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="gallery__column">
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/AR7aumwKr2s/300x300" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Noah Buscher</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/dnL6ZIpht2s/300x300" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Ivana Cajina</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/tV_1sC603zA/300x100" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Sam Burriss</figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="gallery__column">
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/Xm9-vA_bhm0/300x400" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Mari Lezhava</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/NTjSR3zYpsY/300x300" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Ethan Haddox</figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="gallery__column">
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/tV_1sC603zA/300x300" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Guilian Fremaux</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/OQd9zONSx7s/300x300" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Jasmin Chew</figcaption>
-                            </figure>
-                        </a>
-                        <a href="#" class="gallery__link">
-                            <figure class="gallery__thumb">
-                                <img src="https://source.unsplash.com/XZkEhowjx8k/300x200" class="gallery__image">
-                                <figcaption class="gallery__caption">Portrait by Dima DallAcqua</figcaption>
                             </figure>
                         </a>
                     </div>
@@ -128,32 +69,20 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-5">
-                <div class="carousel" id="reels">
-                    <div class="player-container">
-                        <iframe class="player" src="https://player.vimeo.com/video/644036051?h=b260a3b1b0&title=0&byline=0&portrait=0"></iframe>
-                    </div>
-                    <div class="player-container">
-                        <iframe class="player" src="https://player.vimeo.com/video/644036051?h=b260a3b1b0&title=0&byline=0&portrait=0"></iframe>
-                    </div>
-                    <div class="player-container">
-                        <iframe class="player" src="https://player.vimeo.com/video/644036051?h=b260a3b1b0&title=0&byline=0&portrait=0"></iframe>
-                    </div>
-                    <div class="player-container">
-                        <iframe class="player" src="https://player.vimeo.com/video/644036051?h=b260a3b1b0&title=0&byline=0&portrait=0"></iframe>
-                    </div>
-                    <div class="player-container">
-                        <iframe class="player" src="https://player.vimeo.com/video/644036051?h=b260a3b1b0&title=0&byline=0&portrait=0"></iframe>
+            <div v-for="row in rows" class="mb-5">
+                <div class="carousel" :id="row.carousel">
+                    <div v-for="video in row.videos" class="player-container">
+                        <iframe :title="video" :class="row.class" :src="'https://player.vimeo.com/video/' + video"></iframe>
                     </div>
                 </div>
                 <div class="arrow-container">
-                    <div class="arrow" id="goLeft">
+                    <div class="arrow" @click="move(row.carousel, false, row.class)">
                         <i class="bi bi-arrow-left"></i>
                     </div>
                     <div class="">
-                        Instagram Reels
+                        {{ row.name }}
                     </div>
-                    <div class="arrow" id="goRight">
+                    <div class="arrow" @click="move(row.carousel, true, row.class)">
                         <i class="bi bi-arrow-right"></i>
                     </div>
                 </div>
@@ -164,21 +93,68 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script>
-        $("#goRight").click(function (event) {
-            event.preventDefault();
-            $(".carousel").animate({
-                scrollLeft: "+=325px"
-            }, "slow");
-        });
-        $("#goLeft").click(function (event) {
-            event.preventDefault();
-            $(".carousel").animate({
-                scrollLeft: "-=325px"
-            }, "slow");
+        const app = new Vue({
+            el: '#app',
+            data: () => ({
+                rows: [
+                    {
+                        carousel: 'reels',
+                        name: 'Instagram Reels',
+                        class: 'player',
+                        videos: ['833374712', '833374286', '833380971', '836641584', '836643410', '833373027']
+                    },
+                    {
+                        carousel: 'creatives',
+                        name: 'Ad Creatives',
+                        class: 'player',
+                        videos: ['836644634', '833373160', '836645443', '833373685']
+                    },
+                    {
+                        carousel: 'youtube',
+                        name: 'Youtube videos',
+                        class: 'player-horizontal',
+                        videos: ['836652069', '836651147', '833376285', '811932386']
+                    }
+                ],
+                images: [
+                    [{
+                        img: '300x300_1.png',
+                    }, {
+                        img: '300x400_1.png'
+                    }], 
+                    [{
+                        img: '300x200_4.png'
+                    }, {
+                        img: '300x300_3.png'
+                    }, {
+                        img: '300x200_1.png'
+                    }],
+                    [{
+                        img: '300x400_2.png'
+                    }, {
+                        img: '300x300_4.png'
+                    }],
+                    [{
+                        img: '300x200_2.png'
+                    }, {
+                        img: '300x200_3.png'
+                    }, {
+                        img: '300x300_2.png'
+                    }]
+                ],
+            }),
+            methods: {
+                move(carousel, left=false, vertical) {
+                    let width = $($('#'+ carousel +' .' + vertical)[0]).width() + 25;
+                    let sign = (left) ? "+" : "-";
+                    $("#" + carousel).animate({
+                        scrollLeft:  sign + "=" + width + "px"
+                    }, "slow");
+                }
+            }
         });
     </script>
-
 </body>
-
 </html>

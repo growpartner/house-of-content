@@ -171,6 +171,11 @@ figure {
     aspect-ratio: 9/16;
 }
 
+.player-horizontal {
+    width: 100vw;
+    aspect-ratio: 16/9;
+}
+
 .carousel {
     display: flex;
     overflow-x: scroll;
@@ -239,6 +244,11 @@ figure {
 
  /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+    
+    .player-horizontal {
+        width: 50vw;
+    }
+    
     .hero-title {
         font-size: 4rem;
     }
