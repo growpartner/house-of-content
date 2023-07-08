@@ -159,14 +159,14 @@ figure {
 } */
 
 
-.pill{
+.pill {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     border: 1px solid var(--body-text-color);
     border-radius: 999px;
- padding: 5px 15px;
+    padding: 5px 15px;
     font-size: 0.8rem;
     margin-right: 10px;
     margin-bottom: 15px;
@@ -177,90 +177,91 @@ figure {
     background-position: 0 -100%;
     transition: 1.5s ease;
 }
+
 .pill:hover a {
     color: var(--body-text-color);
 }
-.pill.instagram:hover{
+
+.pill.instagram:hover {
     background-position: center;
 
-   
+
 }
 
-.pill.videos:hover{
+.pill.videos:hover {
 
-background-position: center;
-  
+    background-position: center;
+
 
 }
-.pill.shorts:hover{
+
+.pill.shorts:hover {
 
     background-position: center;
- }
+}
 
- .pill.podcasts:hover{
-   
-    
-    background-position: center;
-  
-  }
+.pill.podcasts:hover {
 
 
-  .pill.interviews:hover{
- 
-    
-    
     background-position: center;
- 
- }
- .pill.product:hover{
- 
-     
+
+}
+
+
+.pill.interviews:hover {
+
+
+
     background-position: center;
- 
- }
- .pill.ad-copies:hover{
- 
-     
+
+}
+
+.pill.product:hover {
+
+
     background-position: center;
- 
- }
- .pill.instagram:nth-child(1){
-    
+
+}
+
+.pill.ad-copies:hover {
+    background-position: center;
+
+}
+
+.pill.instagram:nth-child(1) {
+
     filter: hue-rotate(100deg);
 }
-.pill.videos:nth-child(2){
+
+.pill.videos:nth-child(2) {
     filter: hue-rotate(120deg);
 
 }
 
-
-
-.pill.shorts:nth-child(3){
+.pill.shorts:nth-child(3) {
     filter: hue-rotate(150deg);
 
 }
-.pill.podcasts:nth-child(4){
+
+.pill.podcasts:nth-child(4) {
     filter: hue-rotate(40deg);
-    
+
 
 }
-.pill.interviews:nth-child(5){
+
+.pill.interviews:nth-child(5) {
 
     filter: hue-rotate(360deg);
 }
-.pill.product:nth-child(6){
+
+.pill.product:nth-child(6) {
     filter: hue-rotate(110deg);
 }
-.pill.ad-copies:nth-child(7){
+
+.pill.ad-copies:nth-child(7) {
     filter: hue-rotate(0deg);
 
 }
-
-
-
-
-
-
 
 
 .player {
@@ -318,6 +319,7 @@ background-position: center;
     color: var(--body-text-color);
     text-decoration: none;
 }
+
 .text:hover {
     color: var(--body-background);
     text-decoration: none;
@@ -334,27 +336,31 @@ background-position: center;
     .hero-title {
         font-size: 3em;
     }
+
     .section-header {
         font-size: 3rem;
     }
 }
 
- /* Medium devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    
+
     .player-horizontal {
         width: 50vw;
     }
-    
+
     .hero-title {
         font-size: 4rem;
     }
+
     .gallery__column {
         width: 33.33%;
     }
+
     .section-header {
         font-size: 4rem;
     }
+
     .pill {
         padding: 15px 25px;
         font-size: 1rem;
@@ -363,26 +369,69 @@ background-position: center;
     }
 }
 
- /* Large devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .hero-title {
         font-size: 6rem;
         font-weight: 700;
     }
+
     .hero-subtitle {
         font-size: 1.25rem;
     }
+
     .gallery__column {
         width: 25%;
     }
 }
 
- /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
+.floating-button {
+    display: flex;
 }
 
- /* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
+.floating-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    margin: 35px 25px;
+    background: linear-gradient(to right,
+    #7953cd 20%,
+    #00affa 30%,
+    #0190cd 70%,
+    #764ada 80%);
+    border-radius: 48px;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
 }
 
+@media (max-width: 576px) {
+    
+    .floating-container {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+    }
+
+    .floating-text {
+        display: none;
+    }
+
+    .floating-container i.material-icons {
+        margin-top: 4px;
+        margin-left: -2px;
+    }
+}
+
+@media (min-width: 577px) {
+    
+    .floating-button {
+        padding: 16px;
+    }
+
+    .floating-text {
+        margin-left: 8px;
+    }
+}
