@@ -45,7 +45,7 @@
                         Work with us on
                     </div>
                     <div class="pill-container">
-                        <div v-for="row in rows" class="pill instagram ">
+                        <div @click.self="window.location.href = '#' + row.carousel;" v-for="row in rows" class="pill instagram ">
                             <a :href="'#' + row.carousel" class="text">{{row.name}}</a>
                             </div>
                         </div>
@@ -109,9 +109,9 @@
                 ],
                 images: [
                     [{
-                        img: '300x300_1.png',
+                        img: '300x300.jpg',
                     }, {
-                        img: '300x400_1.png'
+                        img: '300x400.jpg'
                     }], 
                     [{
                         img: '300x200_4.png'
@@ -141,7 +141,7 @@
                     $("#" + carousel).animate({
                         scrollLeft:  sign + "=" + width + "px"
                     }, "slow");
-                }
+                },
             }
         });
     </script>
