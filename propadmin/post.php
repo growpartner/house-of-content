@@ -8,13 +8,13 @@ if ( $jsonContent ) {
     $dataArray = json_decode($jsonContent, true);
 }
 
-var_dump(json_decode(file_get_contents('php://input')));
+$res = json_decode(file_get_contents('php://input'));
 // Check if the form fields are set
-if (isset($_POST['name']) && isset($_POST['mobile']) && isset($_POST['email'])) {
+if (isset($res->name) && isset($res->mobile) && isset($res->email)) {
     // Collect form data
-    $name = $_POST['name'];
-    $mobile = $_POST['mobile'];
-    $email = $_POST['email'];
+    $name = $res->name;
+    $mobile = $res->mobile;
+    $email = $res->email;
     
     // Create an associative array
     $data = array(
