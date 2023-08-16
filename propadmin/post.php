@@ -8,6 +8,7 @@ if ( $jsonContent ) {
     $dataArray = json_decode($jsonContent, true);
 }
 
+var_dump(json_decode(file_get_contents('php://input')));
 // Check if the form fields are set
 if (isset($_POST['name']) && isset($_POST['mobile']) && isset($_POST['email'])) {
     // Collect form data
@@ -29,8 +30,10 @@ if (isset($_POST['name']) && isset($_POST['mobile']) && isset($_POST['email'])) 
     // Write the JSON data to the file
     file_put_contents($filePath, $jsonData);
     
+    http_response_code(200);
     echo "Data saved successfully!";
 } else {
+    http_response_code(400);
     echo "All fields are required.";
 }
 ?>
